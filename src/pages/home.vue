@@ -8,9 +8,9 @@
 </template>
 
 <script>
-	import HomeHeader from '../components/homeHeader.vue'
-	import List from '../components/list.vue'
-	import CommonFooter from '../components/commonFooter.vue'
+	import HomeHeader from '../components/homeHeader'
+	import List from '../components/list'
+	import CommonFooter from '../components/commonFooter'
 	export default {
 		name: "home",
 		data () {

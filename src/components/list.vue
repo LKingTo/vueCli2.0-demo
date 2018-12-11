@@ -1,6 +1,6 @@
 <template lang="pug">
 	li.goods-list
-		router-link.goods-list-link(to="/detail")
+		router-link.goods-list-link(:to="{name: 'detail', params: {title: title}}")
 			.goods-list-pic
 				img(:src="img", alt="")
 			.goods-list-desc
