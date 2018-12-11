@@ -1,7 +1,7 @@
 <template lang="pug">
 	.footer
 		ul.footer-cont
-			li(v-for="(item, $index) in 4") {{$index + 1}}
+			li(v-for="(item, $index) in 4", :key="$index") {{$index + 1}}
 </template>
 
 <script>

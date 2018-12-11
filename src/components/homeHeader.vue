@@ -13,7 +13,6 @@
 <style lang="stylus" scoped>
 	.head
 		width 100%
-		height 2rem
 		.header
 			width 100%
 			height 2rem
