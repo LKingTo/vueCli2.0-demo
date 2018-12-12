@@ -1,8 +1,8 @@
 <template lang="pug">
 	.detail
 		detail-header(:title="title")
-			p.site-title 树懒果园 泰国进口大金煌芒果
-			p.site-cont 5斤装，约2-4个果，大！！！甜！！！
+		p.site-title 树懒果园 泰国进口大金煌芒果
+		p.site-cont 5斤装，约2-4个果，大！！！甜！！！
 		common-footer
 </template>
 

@@ -1,11 +1,11 @@
 <template lang="pug">
 	li.goods-list
-		router-link.goods-list-link(:to="{name: 'detail', params: {title: title}}")
+		router-link.goods-list-link(to="/detail")
 			.goods-list-pic
 				img(:src="img", alt="")
 			.goods-list-desc
 				p.goods-list-name {{ title }}
-				p.goods-list-price {{ price | dTofixed | dCurrency }}
+				p.goods-list-price {{ '￥' + Number(price).toFixed(2)}}
 </template>
 
 <script>
