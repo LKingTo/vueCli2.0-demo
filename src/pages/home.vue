@@ -24,7 +24,9 @@
 			CommonFooter
 		},
 		created () {
-
+			this.$http.get('/api/goods').then((data) => {
+				this.items = data.body.data;
+			})
 		}
 	}
 </script>
@@ -34,6 +36,7 @@
 		width 100%
 		margin 0 auto
 		.content
+			margin-top 1.8rem
 			margin-bottom 1.8rem
 		.cont-ul
 			padding-top 0.5rem
