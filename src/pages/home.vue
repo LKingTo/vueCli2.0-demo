@@ -3,7 +3,12 @@
 		home-header
 		.content
 			ul.cont-ul
-				list(v-for="(item, $index) in items", :key="$index", :price="item.price", :title="item.title", :img="item.img")
+				list(
+					v-for="(item, $index) in items",
+					:key="$index",
+					:price="item.price",
+					:title="item.title",
+					:img="item.img")
 		common-footer
 </template>
 

@@ -1,6 +1,10 @@
 <template lang="pug">
 	li.goods-list
-		router-link.goods-list-link(to="/detail")
+		<!-- 声明式路由传参：path + query -->
+		<!--router-link.goods-list-link(:to="{path:`/detail/${title}`}")-->
+		<!--router-link.goods-list-link(:to="{path:'/detail', query:{title: title, img: img}}")-->
+		<!-- 声明式路由传参：name + params -->
+		router-link.goods-list-link(:to="{name:'detail', params:{title: title, img: img}}")
 			.goods-list-pic
 				img(:src="img", alt="")
 			.goods-list-desc
