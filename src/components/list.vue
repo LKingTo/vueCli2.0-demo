@@ -18,7 +18,19 @@
 				// this.$router.push({path: 'detail', query: {title: this.title, img: this.img}})
 
 				//编程式路由跳转传参：$router.push + name + params
-				this.$router.push({name: 'detail', params: {title: this.title, img: this.img}})
+				let onComplete = () => {console.log('route push onComplete')};
+				let onAbort = () => {console.log('route push onAbort')};
+				this.$router.push(
+					{name: 'detail', params: {title: this.title, img: this.img}},
+					onComplete,		//导航成功时回调，先于组件生命钩子beforeCreate
+					onAbort				//导航流产或导航到错误路由时的回调
+				)
+
+				//router.replace
+				// this.$router.replace({name: 'detail', params: {title: this.title, img: this.img}});
+
+				//router.go(n)
+				// this.$router.go(1);
 			}
 		}
 	}
