@@ -1,10 +1,6 @@
 <template lang="pug">
 	li.goods-list
-		<!-- 声明式路由传参：path + query -->
-		<!--router-link.goods-list-link(:to="{path:`/detail/${title}`}")-->
-		<!--router-link.goods-list-link(:to="{path:'/detail', query:{title: title, img: img}}")-->
-		<!-- 声明式路由传参：name + params -->
-		router-link.goods-list-link(:to="{name:'detail', params:{title: title, img: img}}")
+		.goods-list-link(@click="viewDetail()")
 			.goods-list-pic
 				img(:src="img", alt="")
 			.goods-list-desc
@@ -15,7 +11,16 @@
 <script>
 	export default {
 		name: "list",
-		props: ['price', 'title', 'img']
+		props: ['price', 'title', 'img'],
+		methods: {
+			viewDetail() {
+				//编程式路由跳转传参：$router.push + path + query
+				// this.$router.push({path: 'detail', query: {title: this.title, img: this.img}})
+
+				//编程式路由跳转传参：$router.push + name + params
+				this.$router.push({name: 'detail', params: {title: this.title, img: this.img}})
+			}
+		}
 	}
 </script>
 
