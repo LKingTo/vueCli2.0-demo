@@ -19,10 +19,17 @@ const routes = [
 		name: 'detail',
 		path: '/detail',
 		component: Detail,
+		// redirect: '/settings', 		//重定向：路径方式，字符串路径
+		// redirect: {name: 'settings'}, //重定向：命名方式，路有对象
+		redirect: to => {
+			//重定向：方法，返回字符串路径或路有对象
+			return '/settings/profile';
+		},
 	},
 	{
 		name: 'settings',
 		path: '/settings',
+		alias: '/emails',	//别名
 		component: UserSettings,
 		//嵌套子路由
 		children: [{
