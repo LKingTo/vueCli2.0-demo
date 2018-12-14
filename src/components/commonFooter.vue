@@ -1,7 +1,8 @@
 <template lang="pug">
 	.footer
 		ul.footer-cont
-			li(v-for="(item, $index) in 4", :key="$index") {{$index + 1}}
+			router-link(:to="path='/'", tag="li") home
+			router-link(:to="path='/settings/emails'", tag="li") settings
 </template>
 
 <script>
@@ -19,20 +20,21 @@
 		left 0
 		border-top 2px solid #ccc
 		background-color #fff
-		.footer-cont li
-			float left
-			width 25%
-			height 1.8rem
-			line-height 1.8rem
-			font-size 1.4rem
-			color #ff8000
-			text-align center
-			&:active
-				background-color #ccc
-			&:after
-				content ''
-				display block
-				clear both
-				width 0
-				height 0
+		ul.footer-cont
+			display flex
+			li
+				flex 1
+				height 1.8rem
+				line-height 1.8rem
+				font-size 1.4rem
+				color #ff8000
+				text-align center
+				&:active
+					background-color #ccc
+				&:after
+					content ''
+					display block
+					clear both
+					width 0
+					height 0
 </style>
