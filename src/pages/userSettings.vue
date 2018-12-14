@@ -4,10 +4,14 @@
 		nav-bar
 		.main
 			ul
-				router-link(:to="path='/settings/emails'", tag="li", replace) emails
-				router-link(:to="path='/settings/profile'", tag="li", replace) profile
+				router-link(to="/settings/emails", tag="li", replace) emails
+				router-link(
+					:to="{name:'profile', params: {name: name, options: options, filter: sFilter}}",
+					tag="li",
+					replace) profile
 			router-view
-				router-view(name="preview")
+				router-view(name="default")
+				<!--router-view(name="preview")-->
 		common-footer
 </template>
 
@@ -18,12 +22,35 @@
 	 * 子路由切换采用$router.replace替换当前栈
 	 */
 	import NavBar from '../components/settings/navBar'
-  import CommonFooter from '../components/commonFooter'
-  export default {
+	import CommonFooter from '../components/commonFooter'
+	export default {
 		name: "user-settings",
 		components: {
 			NavBar,
 			CommonFooter
+		},
+		data() {
+			return {
+				name: 'toto',
+				options: {
+					mobile: '1234567890',
+					salary: 18888
+				},
+				sFilter: (val) => {
+					return val.toFixed(2);
+				}
+			}
+		},
+		created() {
+			//校验路由传参props属性是否为动态更新
+			setTimeout(() => {
+		  	this.$nextTick(() => {
+					console.log('time out');
+					this.$set(this.$data, 'name', 'Litaly');
+					this.$set(this.$data.options, 'mobile', '999');
+					this.$set(this.$data, 'sFilter', (val) => {return val.toFixed(3)});
+				})
+			}, 3000)
 		}
 	}
 </script>

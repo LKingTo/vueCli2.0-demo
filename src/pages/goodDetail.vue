@@ -1,7 +1,7 @@
 <template lang="pug">
 	.detail
 		detail-header(:title="title")
-		img(:src="imgUrl")
+		img(:src="img")
 		p.site-title 树懒果园 泰国进口大金煌芒果
 		p.site-cont 5斤装，约2-4个果，大！！！甜！！！
 		common-footer
@@ -14,21 +14,14 @@
 		name: "good-detail",
 		data() {
 			return {
-				title: '',
-				imgUrl: ''
 			}
 		},
+		props: ['title', 'img'],
 		components: {
 			DetailHeader,
 			CommonFooter
 		},
 		created() {
-			console.log('params', this.$route.params);
-			console.log('query', this.$route.query);
-			var params = this.$route.params;
-			var query = this.$route.query;
-			this.title = params.title || query.title;
-			this.imgUrl = params.img || query.img;
 		}
 	}
 </script>

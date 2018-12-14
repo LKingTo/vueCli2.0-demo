@@ -19,12 +19,13 @@ const routes = [
 		name: 'detail',
 		path: '/detail',
 		component: Detail,
+		props: true,	//通过组件props属性解耦路由传参，相当于route.params
 		// redirect: '/settings', 		//重定向：路径方式，字符串路径
 		// redirect: {name: 'settings'}, //重定向：命名方式，路有对象
-		redirect: to => {
-			//重定向：方法，返回字符串路径或路有对象
-			return '/settings/profile';
-		},
+		// redirect: to => {
+		// 	//重定向：方法，返回字符串路径或路有对象
+		// 	return '/settings/profile';
+		// },
 	},
 	{
 		name: 'settings',
@@ -43,6 +44,11 @@ const routes = [
 				//命名视图：通过router-view设置name=xx属性，指定视图组件
 				default: UserProfile,	//该路由默认视图组件
 				preview: UserProfilePreview
+			},
+			props: {
+				//命名视图对应设置props
+				default: true,
+				preview: false
 			}
 		}]
 	}
