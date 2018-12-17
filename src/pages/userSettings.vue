@@ -31,13 +31,13 @@
 			CommonFooter
 		},
 		beforeRouteEnter: (to, from, next) => {
-			console.log('Settings [beforeRouteEnter] to:', to);
-			console.log('Settings [beforeRouteEnter] from:', from);
+			// console.log('Settings [beforeRouteEnter] to:', to);
+			// console.log('Settings [beforeRouteEnter] from:', from);
 			next()
 		},
 		beforeRouteUpdate: (to, from, next) => {
-			console.log('Settings [beforeRouteUpdate] to:', to);
-			console.log('Settings [beforeRouteUpdate] from:', from);
+			// console.log('Settings [beforeRouteUpdate] to:', to);
+			// console.log('Settings [beforeRouteUpdate] from:', from);
 			next()
 		},
 		data() {

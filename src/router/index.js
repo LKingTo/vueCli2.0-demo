@@ -35,8 +35,8 @@ const routes = new Router({
 			component: UserSettings,
 			//路由独享守卫，方法参数与全局前置守卫一样
 			beforeEnter: (to, from, next) => {
-				console.log('Settings [beforeEnter] to:', to);
-				console.log('Settings [beforeEnter] from:', from);
+				// console.log('Settings [beforeEnter] to:', to);
+				// console.log('Settings [beforeEnter] from:', from);
 				next()
 			},
 			//嵌套子路由
@@ -57,6 +57,8 @@ const routes = new Router({
 					default: true,
 					preview: false
 				},
+				//路由元信息
+				meta: { requiresAuth: true }
 			}]
 		}]
 	}
@@ -100,8 +102,8 @@ routes.beforeEach((to, from, next) => {
  * 同时在所有组件内守卫和异步路由组件被解析之后
  */
 routes.beforeResolve((to, from, next) => {
-	console.log('[BeforeResolve] to:', to);
-	console.log('[BeforeResolve] from:', from);
+	// console.log('[BeforeResolve] to:', to);
+	// console.log('[BeforeResolve] from:', from);
 	next();
 	// next({path:'/settings/profile'});
 	// next(false);
@@ -111,8 +113,8 @@ routes.beforeResolve((to, from, next) => {
  * 全局后置守卫（钩子）
  */
 routes.afterEach((to, from) => {
-	console.log('[AfterEach] to:', to);
-	console.log('[AfterEach] from:', from);
+	// console.log('[AfterEach] to:', to);
+	// console.log('[AfterEach] from:', from);
 })
 
 export default routes
