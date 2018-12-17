@@ -65,7 +65,7 @@
 					// 	options: this.options,
 					// 	filter: this.sFilter
 					// }});
-					this.$router.replace({path: '/settings/emails'});
+					// this.$router.replace({path: '/settings/emails'});
 				})
 			}, 5000)
 		}

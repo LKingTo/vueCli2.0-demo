@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '../pages/home'
 import Detail from '../pages/goodDetail'
 import UserSettings from '../pages/userSettings'
+import Others from '../pages/others'
 import UserEmailSubscriptions from '../components/settings/userEmailSubscriptions'
 import UserProfile from '../components/settings/userProfile'
 import UserProfilePreview from '../components/settings/userProfilePreview'
@@ -58,11 +59,28 @@ const routes = new Router({
 					preview: false
 				},
 				//路由元信息
-				meta: { requiresAuth: true }
+				meta: {requiresAuth: true}
 			}]
-		}]
+		},
+		{
+			name: 'others',
+			path: '/others',
+			component: Others
+		}
+	],
+	/**
+	 * 滚动行为
+	 * 前置条件：支持 history.pushState 的浏览器
+	 */
+	scrollBehavior (to, from, savedPosition) {
+		//按浏览器后退/前进时，savePosition生效，保持在原滚动位置
+		if (savedPosition) {
+			return savedPosition
+		} else {
+			return { x: 0, y: 0 }
+		}
 	}
-)
+})
 
 /**
  * 完整导航解析流程：

@@ -3,6 +3,7 @@
 		ul.footer-cont
 			router-link(:to="path='/'", tag="li") home
 			router-link(:to="path='/settings/emails'", tag="li") settings
+			router-link(:to="path='/others'", tag="li") others
 </template>
 
 <script>
