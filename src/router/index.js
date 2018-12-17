@@ -74,10 +74,17 @@ const routes = new Router({
 	 */
 	scrollBehavior (to, from, savedPosition) {
 		//按浏览器后退/前进时，savePosition生效，保持在原滚动位置
-		if (savedPosition) {
-			return savedPosition
-		} else {
-			return { x: 0, y: 0 }
+		// if (savedPosition) {
+		// 	return savedPosition
+		// } else {
+		// 	return { x: 0, y: 0 }
+		// }
+
+		//滚动到锚点
+		if (to.hash) { //锚点值需设置唯一值，否则会同步滚动所有含该hash的路由页面
+			return {
+				selector: to.hash
+			}
 		}
 	}
 })

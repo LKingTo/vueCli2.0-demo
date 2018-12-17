@@ -2,11 +2,11 @@
 	.content
 		ul
 			li
-				router-link(:to="{path: '#hash1'}", replace) hash1
+				router-link(:to="{path: '/others#hash1'}", replace) hash1
 			li
-				router-link(:to="{path: '#hash2'}", replace) hash2
+				router-link(:to="{path: '/others#hash2'}", replace) hash2
 			li
-				router-link(:to="{path: '#hash3'}", replace) hash3
+				router-link(:to="{path: '/others#hash3'}", replace) hash3
 		.block#hash1 block hash 1
 		.block#hash2 block hash 2
 		.block#hash3 block hash 3
