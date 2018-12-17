@@ -33,6 +33,12 @@ const routes = new Router({
 			path: '/settings',
 			alias: '/emails',	//别名
 			component: UserSettings,
+			//路由独享守卫，方法参数与全局前置守卫一样
+			beforeEnter: (to, from, next) => {
+				console.log('Settings [beforeEnter] to:', to);
+				console.log('Settings [beforeEnter] from:', from);
+				next()
+			},
 			//嵌套子路由
 			children: [{
 				name: 'emails',
@@ -50,11 +56,27 @@ const routes = new Router({
 					//命名视图对应设置props
 					default: true,
 					preview: false
-				}
+				},
 			}]
 		}]
 	}
 )
+
+/**
+ * 完整导航解析流程：
+ 1.导航被触发。
+ 2.在失活的组件里调用离开 beforeRouteLeave 守卫。
+ 3.调用全局的 beforeEach 守卫。
+ 4.在重用的组件里调用 beforeRouteUpdate 守卫 (2.2+)。
+ 5.在路由配置里调用 beforeEnter。
+ 6.解析异步路由组件。
+ 7.在被激活的组件里调用 beforeRouteEnter。
+ 8.调用全局的 beforeResolve 守卫 (2.5+)。
+ 9.导航被确认。
+ 10.调用全局的 afterEach 钩子。
+ 11.触发 DOM 更新。
+ 12.用创建好的实例调用 beforeRouteEnter 守卫中传给 next 的回调函数。
+ */
 
 /**
  * 全局前置守卫
@@ -77,21 +99,20 @@ routes.beforeEach((to, from, next) => {
  * 2.5.0 全局解析守卫
  * 同时在所有组件内守卫和异步路由组件被解析之后
  */
-//todo 不理解与beforeEach区别
-// routes.beforeResolve((to, from, next) => {
-// 	console.log('[BeforeResolve] to:', to);
-// 	console.log('[BeforeResolve] from:', from);
-// 	next();
-// 	// next({path:'/settings/profile'});
-// 	// next(false);
-// })
+routes.beforeResolve((to, from, next) => {
+	console.log('[BeforeResolve] to:', to);
+	console.log('[BeforeResolve] from:', from);
+	next();
+	// next({path:'/settings/profile'});
+	// next(false);
+})
 
 /**
  * 全局后置守卫（钩子）
  */
 routes.afterEach((to, from) => {
-	console.log('[AfterResolve] to:', to);
-	console.log('[AfterResolve] from:', from);
+	console.log('[AfterEach] to:', to);
+	console.log('[AfterEach] from:', from);
 })
 
 export default routes
