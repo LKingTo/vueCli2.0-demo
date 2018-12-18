@@ -57,9 +57,9 @@
 			setTimeout(() => {
 				this.$nextTick(() => {
 					console.log('time out');
-					// this.$set(this.$data, 'name', 'Litaly');
-					// this.$set(this.$data.options, 'mobile', '999');
-					// this.$set(this.$data, 'sFilter', (val) => {return val.toFixed(3)});
+					this.$set(this.$data, 'name', 'Litaly');
+					this.$set(this.$data.options, 'mobile', '999');
+					this.$set(this.$data, 'sFilter', (val) => {return val.toFixed(3)});
 					// this.$router.replace({name: 'profile', params: {
 					// 	name: 'Litaly',
 					// 	options: this.options,

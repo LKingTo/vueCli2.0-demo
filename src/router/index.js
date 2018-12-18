@@ -120,6 +120,8 @@ routes.beforeEach((to, from, next) => {
 	next();
 	// next({path:'/settings/profile'});
 	// next(false);
+	console.log('当前路由匹配的组件数组：', routes.getMatchedComponents(location));
+	console.log('当前路由对象：', routes.currentRoute);
 })
 
 /**
@@ -138,8 +140,15 @@ routes.beforeResolve((to, from, next) => {
  * 全局后置守卫（钩子）
  */
 routes.afterEach((to, from) => {
-	// console.log('[AfterEach] to:', to);
-	// console.log('[AfterEach] from:', from);
+	console.log('[AfterEach] to:', to);
+	console.log('[AfterEach] from:', from);
+})
+
+/**
+ * 路由初始化完成且afterEach钩子执行之后
+ */
+routes.onReady(() => {
+	console.log('route onReady');
 })
 
 export default routes
