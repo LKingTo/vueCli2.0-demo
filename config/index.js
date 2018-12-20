@@ -10,7 +10,24 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+    	/* toto 本地代理跨域问题：请求外网api */
+		'/api': {
+    		target: 'http://robotdev.gf.com.cn:32003/',
+			changeOrigin: true,
+			pathRewrite: {
+    			// '^/api': '/', //改路径在组件中可用于替代target的路径
+			}
+		},
+		'/ap': {
+    		target: 'http://shopdev.gf.com.cn/',
+			changeOrigin: true,
+			pathRewrite: {
+				'^/ap': ''
+			}
+		},
+		/* toto */
+	},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
