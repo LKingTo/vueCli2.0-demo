@@ -24,9 +24,14 @@
 			CommonFooter
 		},
 		created () {
-			this.$http.get('/api/goods').then((data) => {
-				this.items = data.body.data;
-			})
+			// this.$http.get('/api/goods').then((data) => {
+			// 	this.items = data.body.data;
+			// })
+
+			this.$axios.get('/api/goods').then((data) => {
+				console.log(data);
+		  	this.items = data.data;
+		  })
 		}
 	}
 </script>
